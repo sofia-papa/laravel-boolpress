@@ -1,9 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
-use App\Models\Post;
+use Illuminate\Support\Str;
+
 use App\Models\Category;
+use App\Models\Post;
+/* use App\Models\Tag; */
+
+
 
 class PostController extends Controller
 {
@@ -54,11 +63,12 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $post
+     * @param  Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
+        $categories = Category::all();
         return view('admin.posts.show', compact('post'));
     }
 
