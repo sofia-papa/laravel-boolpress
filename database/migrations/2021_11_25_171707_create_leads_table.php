@@ -15,6 +15,9 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email_address');
+            $table->text('message');
             $table->timestamps();
         });
     }
